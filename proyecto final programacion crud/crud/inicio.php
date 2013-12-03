@@ -1,4 +1,3 @@
-<!DOCTRYPE html>
 <html>
     <head>
 	  <title> INVENTARIO </title>
@@ -23,8 +22,8 @@
         <ol class="breadcrumb">
            <li class="active"><span class="glyphicon glyphicon-home">&nbsp;Inicio</li>
            <li><a href="crear.php">Crear formulario</a></li>
-           <li><a href="editar.html">Editar</a></li>
-           <li><a href="ver.html">Ver</a></li>
+           <li><a href="editar.php">Editar</a></li>
+           <li><a href="ver.php">Ver</a></li>
            <li><a href="contacto.html">Contacto</a></li>
          </ol>
       </div>
@@ -41,10 +40,10 @@
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
              <ul class="nav navbar-nav pull-right">
                 <li class="active">
-                     <a href="inicio.html">INICIO</a></li>
+                     <a href="inicio.php">INICIO</a></li>
                 <li ><a href="crear.php">CREAR FORMULARIO</a></li>
-               <li ><a href="editar.html">EDITAR FORMULARIO</a></li>
-               <li ><a href="ver.html"> VISUALIZACIÓN</a></li>
+               <li ><a href="editar.php">EDITAR FORMULARIO</a></li>
+               <li ><a href="ver.php"> VISUALIZACIÓN</a></li>
                <li ><a href="contacto.html"> CONTACTO</a></li>
              </ul>
            </div>
@@ -54,47 +53,45 @@
         <div class="container">
             <div class="row">
               <div class="col-md-12">
+
                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-                       <div class="carousel-inner">
-                         <div class="item active">
-                            <img src="img\img.jpg" alt="0" class="img-rounded">
-                          <div class="carousel-caption">
-                          <h1>BIENVENIDO</h1>
-                          <p>Gracias por visitar nuestro sitio web   
-                          </p>
-                            </div>
-                         </div>
-                        <div class="item">
-                          <img src="img\img2.jpg" alt="1" class="img-rounded">
-                          <div class="carousel-caption">
-                          <h1>ADMINISTRE</h1>
-                          <p>Tendrá un inventario rápido de su negocio 
-                          </p>
-                          </div>
-                        </div>
-                        <div class="item">
-                           <img src="img\img3.jpg" alt="2"class="img-rounded"> 
-                           <div class="carousel-caption">
-                          <h1>CONTROLE</h1>
-                          <P>Tendrá un control total de su mercancía   
-                          </P>
-                          </div>
-                         </div>
-                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                   <span class="glyphicon glyphicon-chevron-right"></span>
-                                 </a>
-                                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                  </a>
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="img\img.jpg" alt="img" class="img-rounded">
+                      <div class="carousel-caption">
+                        <h1>BIENVENIDO</h1>
+                        <p>Gracias por visitar nuestro sitio web</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="img\img2.jpg" alt="img" class="img-rounded">
+                      <div class="carousel-caption">
+                        <h1>ADMINISTRE</h1>
+                        <p>Tendrá un inventario rápido de su negocio </p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="img\img3.jpg" alt="img"class="img-rounded"> 
+                      <div class="carousel-caption">
+                        <h1>CONTROLE</h1>
+                        <P>Tendrá un control total de su mercancía </P>
+                      </div>
+                    </div>
                   </div>
+                  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+                  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
                 </div>
               </div>
-             </div>
+             </div>       
       </nav>
     </div>
         <div class="container">
@@ -104,8 +101,7 @@
                   	<h1> UN VISTAZO GENERAL </h1>
                      <p>Tu inventario Tunja; está diseñado   exclusivamente para que los usuarios puedan gestionar, administrar y tener algún tipo de control sobre su negocio. En este se podrá tener un acceso rápido al  inventario de su negocio  mostrándolo cada uno de los productos con sus respectivos precios además de permitirle hacer modificaciones en estos mismos. Todo esto con el fin de facilitarle su trabajo diario
                    </p>
-                  </div>
-               
+                  </div>               
                	    <img src="img\img1.jpg" alt="uno"class="img-rounded">
                    </div>
                  </div>
