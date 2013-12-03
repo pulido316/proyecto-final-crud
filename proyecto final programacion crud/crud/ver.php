@@ -19,11 +19,14 @@
            /*/ @media (min-width: 1200px) {  body{color: gray}}*/
          </style>
       <body>
+
+
+
        <div>
         <ol class="breadcrumb">
-           <li><a href="inicio.html">Inicio</a></li>
-           <li><a href="formulario.html">Crear formulario</a></li>
-           <li><a href="ver.html">Editar</a></li>
+           <li><a href="inicio.php">Inicio</a></li>
+           <li><a href="crear.php">Crear formulario</a></li>
+           <li><a href="editar.php">Editar</a></li>
            <li class="active"><span class="glyphicon glyphicon-folder-open">&nbsp;Ver</a></li>
            <li><a href="contacto.html">Contacto</a></li>
          </ol>
@@ -43,50 +46,52 @@
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
              <ul class="nav navbar-nav pull-right">
                 <li class="active">
-                     <a href="inicio.html">INICIO</a></li>
-                <li ><a href="formulario.html">CREAR FORMULARIO</a></li>
-               <li ><a href="editar.html">EDITAR FORMULARIO</a></li>
-               <li ><a href="ver.html"> VISUALIZACIÓN</a></li>
+                     <a href="inicio.php">INICIO</a></li>
+                <li ><a href="crear.php">CREAR FORMULARIO</a></li>
+               <li ><a href="editar.php">EDITAR FORMULARIO</a></li>
+               <li ><a href="ver.php"> VISUALIZACIÓN</a></li>
                <li ><a href="contacto.html"> CONTACTO</a></li>
              </ul>
            </div>
             </nav>
         </div>
 
-        <div class="container">
-          <div class="row-fluid">
-           <div class="col-md-12">
-            <table class="table table-bordered table-hover table-condensed">
-              <tr class="active">
-                <td><span class="glyphicon glyphicon-th"></td>
-                 <td><span class="glyphicon glyphicon-shopping-cart"> Nombre del Producto</td>
-                  <td><span class="glyphicon glyphicon-tasks">Cantidad</td>
-                   <td><span class="glyphicon glyphicon-usd">Precio </td> 
-              </tr>
-              <tr class="success">
-                <td>1</td>
-                 <td>null</td>
-                  <td>0</td>
-                   <td><span class="glyphicon glyphicon-usd"></span>0</td> 
-              </tr>
-              <tr class="warning">
-                <td>2</td>
-                 <td>null</td>
-                  <td>0</td>
-                     <td><span class="glyphicon glyphicon-usd"></span>0</td> 
-              </tr>
-              <tr class="danger">
-                 <td>3</td>
-                  <td>null</td>
-                  <td>0</td>
-                     <td><span class="glyphicon glyphicon-usd"></span>0</td> 
-              </tr>
-            </table>     
-           </div>
-        </div>
-        </div>
+        <?php 
+              include("conexon.php"); 
+ 
+                $sql="select * from inventario" or die(mysql_error());
+                $consulta=mysql_query($sql,$conexion);
 
-        
+
+        echo'<div class="container">';
+          echo'<div class="row-fluid">';
+          echo' <div class="col-md-12">';
+            echo'<table class="table table-bordered table-hover table-condensed">';
+             echo' <tr class="active">';
+                echo'<td><span class="glyphicon glyphicon-th"> ID</td>';
+               echo'<td><span class="glyphicon glyphicon-shopping-cart"> Nombre del Producto</td>';
+                echo '<td><span class="glyphicon glyphicon-tasks"> Cantidad</td>';
+                echo ' <td><span class="glyphicon glyphicon-usd"> Precio </td> ';
+
+             echo '</tr>';
+             while($columnas=mysql_fetch_array($consulta))
+             {
+
+
+             echo '<tr class="success">';
+             echo ' <td>'.$columnas['id'].'</td>';
+             echo '  <td>'.$columnas['nombre_producto'].'</td>';
+             echo '   <td>'.$columnas['cantidad'].'</td>';            
+             echo '    <td><span class="glyphicon glyphicon-usd"></span>'.$columnas['precio'].'</td> ';
+             echo '</tr>';
+              }
+             
+            echo'</table> ';    
+          echo' </div>';
+        echo'</div>';
+        echo'</div>';
+
+        ?>
 
         </div>
         
