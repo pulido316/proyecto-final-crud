@@ -59,13 +59,12 @@
                    <legend>Consulte el Producto</legend>
                     <label>Buscar</label>
                     <br>
-                    <input class="text" name="busqueda"> </input>
+                    <input class="text" name="busqueda"required> </input>
                     <br>
                     <input type="submit" name="boton" value="buscar" type="button" class="btn btn-primary  btn-success">
                     <br>
                     <br>
-                    <input type="submit" name="botonActualizar" value="ACTUALIZAR" type="button" class="btn btn-warning">
-                    <input type="submit" name="botonEliminar" value="ELIMINAR" type="button" class="btn btn-danger">
+                    
                   </form>
              </div>
              <div class="well">
@@ -78,19 +77,21 @@
            include("conexon.php"); 
           ?>
           <?php  
+          $dato="";
            if(isset($_POST["boton"])){
              $boton=$_POST["boton"];
              $caja=$_POST["busqueda"];
              if ($boton=="buscar") {
-              $consulata="SELECT * FROM inventario WHERE nombre_producto= '".$caja."'";
+              $consulata="SELECT * FROM inventario WHERE nombre_producto like '".$caja."'";
               $fila=mysql_query($consulata);
-           
              while($columnas=mysql_fetch_array($fila))
              {
               echo '<div class="container">';
               echo '<div class="well">';
               echo '<form method="post" >';
               echo '<legend>EXISTE PRODUCTO ¡¡¡</legend>';
+              echo '<label>Codigo a Modificar:<p></label>';
+              echo ' <input name ="IDMOD" value="'.$columnas['id'].'" OnFocus="this.blur()"><br>';
               echo '<label>Codigo:<p></label>';
               echo ' <input name ="ID" value="'.$columnas['id'].'"><br>';
               echo '<label>Nombre:<p></label>';
@@ -99,30 +100,43 @@
               echo ' <input name="CANTIDAD" value="'.$columnas['cantidad'].'"><br>'; 
               echo '<label>Precio:<p></label>';   
               echo ' <input name="PRECIO" value="'.$columnas['precio'].'"><br>';   
-              
+              echo' <input type="submit" name="botonActualizar" value="ACTUALIZAR" type="button" class="btn btn-warning">';
+              echo'<input type="submit" name="botonEliminar" value="ELIMINAR" type="button" class="btn btn-danger">';
               echo '</form>';
               echo '</div>';  
               echo '</div>';   
               }
-             }  
+             } 
            }
-           ?>
-
-           <?php 
-           if(isset($_POST["botonActualizar"])){
-             $boton=$_POST["botonActualizar"];
+                   if(isset($_POST["botonActualizar"])){
+                    $boton=$_POST["botonActualizar"];
                    if($boton=="ACTUALIZAR"){
-              echo "<script> alert('Se actualizo correctamente');</script>"; 
-                   $id=$_POST["id"];
-                   $producto=$_POST["nombre_roducto"];
-                   $cantidad=$_POST["cantidad"];
-                   $precio=$_POST["precio"];
-                   $sql="update inventario set id='$id',nombre_producto='$producto',cantidad=''$cantidad',precio='$precio' where id='$id'";
-                    
-                    $cs=mysql_query($sql,$cn);
-                    echo "<script> alert('Se actualizo correctamente');</script>";
-                           } 
-                         }
-            ?>
+                   echo "<script> alert('Se actualizo correctamente');</script>"; 
+                   $idmod=$_POST['IDMOD'];
+                   $id=$_POST['ID'];
+                   $producto=$_POST["NOMBRE_PRODUCTO"];
+                   $cantidad=$_POST["CANTIDAD"];
+                   $precio=$_POST["PRECIO"];
+                   $sql="update inventario set id=".$id.",nombre_producto='".$producto."',cantidad=".$cantidad.",precio=".$precio." where id= ".$idmod or die(msql_error());
+                    $cs=mysql_query($sql);
+                        } 
+                 } 
+                  if(isset($_POST["botonEliminar"])){
+                    $boton=$_POST["botonEliminar"];
+                   if($boton=="ELIMINAR"){
+                   $idmod=$_POST['IDMOD'];
+                   $id=$_POST['ID'];
+                   $producto=$_POST["NOMBRE_PRODUCTO"];
+                   $cantidad=$_POST["CANTIDAD"];
+                   $precio=$_POST["PRECIO"];
+                  
+                   $sql="delete from inventario where id = ".$idmod;
+                   $cs=mysql_query($sql);
+                     echo'<script>alert("Se elimino correctamente el dato ¡¡¡¡");</script>';
+                        } 
+                      }
+       
+           ?>
+           
          </body>
 </html>
